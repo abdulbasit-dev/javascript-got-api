@@ -39,7 +39,7 @@ a {
 /* Header  */
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
 }
@@ -103,13 +103,14 @@ header img {
 
 /* Detail Page  */
 .main-detail {
-  margin-top: 4rem;
+  margin-top: 10rem;
 }
 
 .detail {
-  margin: auto 15rem;
+  margin: auto 20rem;
   display: grid;
   grid-template-columns: 1fr 2fr;
+
 }
 
 .img-container {

@@ -1,47 +1,47 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
-const {name} = params;
-// Change title 
-document.title = `${name} | Info` ;
+const {name, id} = params;
+// Change title
+document.title = `${name} | Info`;
 
 getChar();
 async function getChar() {
-  const resp = await fetch(`https://breakingbadapi.com/api/characters?name=${name}`);
-  const respData = await resp.json();
-  if (respData.length !== 0) {
-    showChar(respData[0]);
-    document.querySelector('.loader').classList.add('hide');
+  try {
+    const resp = await fetch(`https://thronesapi.com/api/v2/Characters/${id}`);
+    const respData = await resp.json();
+    if (respData.length !== 0) {
+      showChar(respData);
+      document.querySelector('.loader').classList.add('hide');
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 
 function showChar(char) {
-  const {name, img, birthday, occupation, nickname, status, appearance} = char;
+  const {firstName, lastName, fullName, title, family, imageUrl:img} = char;
   document.querySelector('.main-detail').innerHTML = `
    <div class="detail">
       <div class="img-container">
-        <img src="${img}" alt="${name}" />
+        <img src="${img}" alt="${firstName}" />
       </div>
       <div class="info">
-        <h1>${name}</h1>
+        <h1>${fullName}</h1>
         <div>
-          <span>Nick Name: </span>
-          <span>${nickname}</span>
+          <span>First Name: </span>
+          <span>${firstName}</span>
         </div>
         <div>
-          <span>Occupation:</span>
-          <span>${occupation.map(item => ` ${item} `)}</span>
+          <span>Last Name: </span>
+          <span>${lastName}</span>
         </div>
         <div>
-          <span>Season Appearance:</span>
-          <span>${appearance.map(item => ` ${item} `)}</span>
+          <span>Title:</span>
+          <span>${title}</span>
         </div>
         <div>
-          <span>Birthday:</span>
-          <span>${birthday}</span>
-        </div>
-        <div>
-          <span>Satus:</span>
-          <span>${status}</span>
+          <span>Family:</span>
+          <span>${family}</span>
         </div>
       </div>
     </div>
