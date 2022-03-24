@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Contact</title>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="logo">
+        <img src="./resources/logo.png" alt="logo" />
+      </div>
+    </header>
+
+    <div class="form-container">
+      <form action="" method="" id="contact-form">
+        <h1>Contact</h1>
+        <div class="success-message hide">
+          <span>The form passed validation.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" />
+          <small class="text-danger mt-2">Error message</small>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" class="form-control" id="subject" />
+          <small class="text-danger mt-2">Error message</small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" />
+          <small class="text-danger mt-2">Error message</small>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script src="js/contact.js"></script>
+  </body>
+</html>
